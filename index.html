@@ -1,0 +1,960 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Julian Zeppa · Product Designer</title>
+<meta name="description" content="Julian Zeppa: product designer, co-founder of Armada Strategic, and political science student at the University of Miami focused on defense.">
+<meta property="og:title" content="Julian Zeppa · Product Designer">
+<meta property="og:description" content="Julian Zeppa: product designer, co-founder of Armada Strategic, and political science student at the University of Miami focused on defense.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="/img/civic-operations.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" fill="%2313171A"/><text x="32" y="44" font-family="Arial Black,Arial,sans-serif" font-weight="900" font-size="30" text-anchor="middle" fill="%23D9A441">JZ</text></svg>'>
+<style>
+:root{padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px)}
+body{margin:0; font:14px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}
+img{max-width:100%}
+[hidden]{display:none!important}
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one-page personal site. Sticky nav → intro → about + quick facts → experience timeline → projects → skills → contact. Defense signal from type (expanded industrial caps, IBM Plex) and gunmetal + avionics-amber. */
+:root{
+  --bg:#13171A; --surface:#1B2024; --raised:#232A2F; --fg:#E4E7E6; --muted:#8E979B; --line:#2E363C;
+  --accent:#D9A441; --accent-soft:rgba(217,164,65,.14); --ok:#6FB58A;
+  --font-display:"Archivo", "Arial Narrow", system-ui, sans-serif;
+  --font-body:"IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono:"IBM Plex Mono", ui-monospace, Menlo, monospace;
+  --t-xs:.75rem; --t-sm:.875rem; --t-md:1rem; --t-lg:1.2rem; --t-xl:clamp(1.8rem,4vw,2.6rem); --t-hero:clamp(2.8rem,8.5vw,6.4rem);
+  color-scheme:dark;
+}
+@media (prefers-color-scheme: light){:root:not([data-theme="dark"]){
+  --bg:#E8EBEC; --surface:#F3F5F5; --raised:#FFFFFF; --fg:#14181B; --muted:#5B6469; --line:#C9CFD2;
+  --accent:#9A6A12; --accent-soft:rgba(154,106,18,.10); --ok:#2F7A46; color-scheme:light }}
+:root[data-theme="light"]{
+  --bg:#E8EBEC; --surface:#F3F5F5; --raised:#FFFFFF; --fg:#14181B; --muted:#5B6469; --line:#C9CFD2;
+  --accent:#9A6A12; --accent-soft:rgba(154,106,18,.10); --ok:#2F7A46; color-scheme:light }
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{background:var(--bg); color:var(--fg); font-family:var(--font-body); font-size:var(--t-md); line-height:1.6}
+body::before{content:""; position:fixed; inset:0 0 auto; height:env(safe-area-inset-top,0px); z-index:10; background:var(--bg)}
+.wrap{max-width:1180px; margin:0 auto; padding-left:max(16px, env(safe-area-inset-left,0px)); padding-right:max(16px, env(safe-area-inset-right,0px))}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
+.mono{font-family:var(--font-mono); font-size:var(--t-xs); letter-spacing:.08em; text-transform:uppercase; color:var(--muted)}
+h1,h2,h3{font-family:var(--font-display); font-stretch:125%; text-transform:uppercase; text-wrap:balance; margin:0}
+section[id]{scroll-margin-top:72px}
+
+/* nav */
+.top{position:sticky; top:env(safe-area-inset-top,0px); z-index:9; background:color-mix(in srgb,var(--bg) 92%,transparent); backdrop-filter:blur(8px); border-bottom:1px solid var(--line)}
+.top .wrap{display:flex; justify-content:space-between; align-items:center; gap:16px; padding-block:16px}
+.brand{font:700 var(--t-sm)/1 var(--font-display); font-stretch:125%; letter-spacing:.12em; text-transform:uppercase; text-decoration:none}
+.top nav{display:flex; gap:20px; flex-wrap:wrap}
+.top nav a{text-decoration:none; font:500 var(--t-xs)/1 var(--font-mono); letter-spacing:.1em; text-transform:uppercase; color:var(--muted)}
+.top nav a:hover{color:var(--fg)}
+
+/* hero */
+.hero{padding-block:72px 56px; display:grid; gap:26px}
+.status{display:inline-flex; align-items:center; gap:8px}
+.status i{width:8px; height:8px; border-radius:50%; background:var(--ok)}
+.hero h1{font-weight:800; font-size:var(--t-hero); line-height:.9}
+.hero h1 span{color:var(--accent)}
+.hero .lede{font-size:var(--t-lg); max-width:50ch; margin:0; color:var(--muted)}
+.hero .lede strong{color:var(--fg); font-weight:500}
+.cta{display:flex; gap:10px; flex-wrap:wrap}
+.btn{display:inline-flex; align-items:center; gap:8px; font:600 var(--t-xs)/1 var(--font-mono); letter-spacing:.1em; text-transform:uppercase; text-decoration:none; padding:13px 15px; border:1px solid var(--line); background:transparent; color:var(--fg); cursor:pointer}
+.btn:hover{border-color:var(--fg)}
+.btn.primary{background:var(--accent); border-color:var(--accent); color:#14181B}
+.btn.primary:hover{filter:brightness(1.08)}
+
+/* shared section heading */
+.sec{padding-block:56px; border-top:1px solid var(--line)}
+.sec-head{display:flex; justify-content:space-between; align-items:baseline; gap:16px; margin-bottom:28px; flex-wrap:wrap}
+.sec-head h2{font-size:var(--t-xl); font-weight:800; line-height:1}
+.todo{font:500 var(--t-xs)/1.4 var(--font-mono); color:var(--accent); background:var(--accent-soft); padding:6px 10px; width:fit-content}
+
+/* about */
+.about{display:grid; grid-template-columns:1.6fr 1fr; gap:48px; align-items:start}
+.about p{font-size:var(--t-lg); margin:0 0 16px; max-width:62ch}
+.facts{display:grid; gap:0; margin:0; border:1px solid var(--line); background:var(--surface)}
+.facts div{display:grid; grid-template-columns:110px 1fr; gap:12px; padding:12px 16px; border-bottom:1px solid var(--line)}
+.facts div:last-child{border-bottom:0}
+.facts dt{font:500 var(--t-xs)/1.9 var(--font-mono); letter-spacing:.08em; text-transform:uppercase; color:var(--muted)}
+.facts dd{margin:0; font-size:var(--t-sm)}
+
+/* experience timeline */
+.timeline{list-style:none; margin:0; padding:0; display:grid; gap:0}
+.role{display:grid; grid-template-columns:200px 1fr; gap:32px; padding-block:26px; border-top:1px solid var(--line)}
+.role:first-child{border-top:0; padding-top:0}
+.when{display:grid; gap:6px; align-content:start}
+.when b{font:500 var(--t-sm)/1.3 var(--font-mono); font-variant-numeric:tabular-nums}
+.role h3{font-size:1.35rem; font-weight:800; line-height:1.1}
+.role .org{color:var(--accent); font-weight:500; margin:6px 0 10px}
+.role ul{margin:0; padding-left:18px; display:grid; gap:6px; color:var(--muted); max-width:70ch}
+.role ul strong{color:var(--fg); font-weight:500}
+.role.placeholder{opacity:.7}
+.role.placeholder h3,.role.placeholder .org{font-style:italic}
+
+
+/* earlier + education */
+.earlier{margin-top:8px; border-top:1px solid var(--line); padding-top:22px; display:grid; grid-template-columns:200px 1fr; gap:32px}
+.earlier ul{list-style:none; margin:0; padding:0; display:grid; gap:8px; font-size:var(--t-sm); color:var(--muted)}
+.earlier b{color:var(--fg); font-weight:500}
+.earlier li .mono{margin-left:8px}
+.edu{display:grid; grid-template-columns:1fr 1fr; gap:20px}
+.edu > div{border:1px solid var(--line); background:var(--surface); padding:22px; display:grid; gap:8px; align-content:start}
+.edu h3{font-size:1.35rem; font-weight:800; line-height:1.1}
+.edu p{margin:0; color:var(--muted); font-size:var(--t-sm)}
+@media (max-width:640px){ .earlier,.edu{grid-template-columns:1fr; gap:12px} }
+
+
+/* résumé sheet */
+.sheet{background:var(--surface); border:1px solid var(--line); padding:40px 44px; display:grid; gap:0}
+.sheet-head{display:flex; justify-content:space-between; align-items:end; gap:16px; flex-wrap:wrap; padding-bottom:22px; border-bottom:2px solid var(--fg)}
+.sheet-head h3{font-size:clamp(1.6rem,3.5vw,2.2rem); font-weight:800; line-height:1}
+.sheet-head p{margin:8px 0 0; color:var(--muted); font-size:var(--t-sm)}
+.block{padding-top:28px; display:grid; gap:18px; scroll-margin-top:72px}
+.block + .block{margin-top:12px}
+.block h4{margin:0; color:var(--accent); font-weight:600; border-bottom:1px solid var(--line); padding-bottom:8px}
+.sheet .role{padding-block:18px}
+.sheet .role:first-child{padding-top:0}
+.sheet .role h3{font-size:1.15rem}
+.sheet .edu > div{background:var(--bg)}
+.sheet .skills{background:var(--bg)}
+@media (max-width:640px){ .sheet{padding:22px 18px} }
+
+/* projects */
+.projects{display:grid; gap:24px}
+.project{display:grid; grid-template-columns:1.25fr 1fr; background:var(--surface); border:1px solid var(--line)}
+.project:nth-child(even){grid-template-columns:1fr 1.25fr}
+.project:nth-child(even) .visual{order:2; border-right:0; border-left:1px solid var(--line)}
+.visual{position:relative; min-height:360px; background:var(--raised); overflow:hidden; border-right:1px solid var(--line)}
+.visual img.shot{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:left top; display:block}
+.visual.phones{min-height:500px; display:flex; justify-content:center; align-items:center; gap:4%; padding:6%;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px); background-size:32px 32px}
+.visual.phones img{width:28%; max-width:100%; height:auto; border-radius:14px; border:1px solid var(--line); box-shadow:0 12px 30px rgba(0,0,0,.35)}
+.visual.phones img:nth-child(2){transform:translateY(-6%)}
+.info{padding:32px; display:grid; gap:16px; align-content:start; min-width:0}
+.info .idx{font:500 var(--t-xs)/1 var(--font-mono); letter-spacing:.12em; color:var(--accent)}
+.info h3{font-weight:800; font-size:var(--t-xl); line-height:1}
+.info p{margin:0; color:var(--muted); max-width:52ch}
+.specs{display:grid; grid-template-columns:auto 1fr; gap:8px 20px; margin:0; font-size:var(--t-sm); border-top:1px solid var(--line); padding-top:16px}
+.specs dt{font:500 var(--t-xs)/1.9 var(--font-mono); letter-spacing:.08em; text-transform:uppercase; color:var(--muted)}
+.specs dd{margin:0}
+.links{display:flex; gap:10px; flex-wrap:wrap}
+
+/* skills */
+.skills{display:grid; grid-template-columns:repeat(4,1fr); border:1px solid var(--line); background:var(--surface)}
+.skills > div{padding:20px; display:grid; gap:12px; align-content:start; min-width:0}
+.skills > div + div{border-left:1px solid var(--line)}
+.chips{display:flex; flex-wrap:wrap; gap:6px}
+.chips span{font:500 var(--t-xs)/1 var(--font-mono); border:1px solid var(--line); padding:7px 9px}
+
+/* contact */
+.contact{border-top:1px solid var(--line); background:var(--surface)}
+.contact .wrap{padding-block:64px 28px; display:grid; gap:26px}
+.contact h2{font-size:clamp(2.2rem,6vw,4.4rem); font-weight:800; line-height:.95; max-width:16ch}
+.email-row{display:flex; flex-wrap:wrap; gap:10px; align-items:center}
+.email{font:500 var(--t-lg)/1.3 var(--font-mono); user-select:all; padding:11px 14px; border:1px solid var(--line); background:var(--bg); overflow-wrap:anywhere}
+.socials{display:flex; flex-wrap:wrap; gap:8px 26px}
+.socials a{text-decoration:none; font:500 var(--t-sm)/1 var(--font-mono)}
+.socials a:hover{color:var(--accent)}
+footer{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; padding-top:22px; border-top:1px solid var(--line)}
+
+@media (max-width:900px){
+  .about{grid-template-columns:1fr; gap:28px}
+  .project,.project:nth-child(even){grid-template-columns:1fr}
+  .project:nth-child(even) .visual{order:0; border-left:0}
+  .visual{border-right:0; border-bottom:1px solid var(--line); min-height:0; aspect-ratio:16/10; max-width:100%}
+  .visual.phones{aspect-ratio:1/1; min-height:0}
+  .project:nth-child(even) .visual{border-bottom:1px solid var(--line)}
+  .info{padding:22px}
+  .skills{grid-template-columns:1fr 1fr}
+  .skills > div:nth-child(3){border-left:0}
+  .skills > div:nth-child(n+3){border-top:1px solid var(--line)}
+}
+@media (max-width:640px){
+  .role{grid-template-columns:1fr; gap:10px}
+  .top nav{gap:12px}
+  .top nav a.opt{display:none}
+  .skills{grid-template-columns:1fr}
+  .skills > div + div{border-left:0; border-top:1px solid var(--line)}
+}
+
+.site-foot .wrap{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; padding-block:24px; border-top:1px solid var(--line)}
+.site-foot a{text-decoration:none}
+.contact{border-top:0; min-height:60vh}
+/* views */
+.view[hidden]{display:none!important}
+.page{border-top:0; padding-top:56px}
+.top nav a[aria-current="page"]{color:var(--fg); box-shadow:inset 0 -2px 0 var(--accent); padding-bottom:6px}
+
+/* home hero */
+.home-hero{display:grid; grid-template-columns:1.15fr 1fr; gap:48px; align-items:center; padding-block:72px 64px}
+.home-hero .copy{display:grid; gap:24px; min-width:0}
+.home-hero h1{font-weight:800; font-size:clamp(2.8rem,7vw,5.6rem); line-height:.9}
+.home-hero h1 span{color:var(--accent)}
+.home-hero .lede{font-size:var(--t-lg); max-width:46ch; margin:0; color:var(--muted)}
+.home-hero .lede strong{color:var(--fg); font-weight:500}
+.portrait{position:relative; aspect-ratio:4/5; max-width:100%; border:1px solid var(--line); background:var(--surface); overflow:hidden}
+.portrait img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:left top; opacity:.9}
+.portrait::after{content:""; position:absolute; inset:0; background:linear-gradient(180deg,transparent 45%,color-mix(in srgb,var(--bg) 92%,transparent))}
+.portrait .tag{position:absolute; left:18px; right:18px; bottom:18px; z-index:1; display:grid; gap:4px}
+.portrait .tag b{font:800 1.4rem/1 var(--font-display); font-stretch:125%; text-transform:uppercase}
+.corner{position:absolute; width:18px; height:18px; border-color:var(--accent); border-style:solid; z-index:1}
+.corner.tl{top:10px; left:10px; border-width:2px 0 0 2px} .corner.tr{top:10px; right:10px; border-width:2px 2px 0 0}
+.corner.bl{bottom:10px; left:10px; border-width:0 0 2px 2px} .corner.br{bottom:10px; right:10px; border-width:0 2px 2px 0}
+
+
+/* id card */
+.idcard{position:relative; border:1px solid var(--line); background:var(--surface); padding:34px 30px 28px; display:grid; gap:22px; max-width:100%}
+.id-top{display:flex; justify-content:space-between}
+.mark{font:800 clamp(5rem,12vw,8.5rem)/.85 var(--font-display); font-stretch:125%; color:var(--accent); letter-spacing:-.02em}
+.id-name{display:grid; gap:6px; border-bottom:1px solid var(--line); padding-bottom:18px}
+.id-name b{font:800 1.6rem/1 var(--font-display); font-stretch:125%; text-transform:uppercase}
+.id-rows{margin:0; display:grid; gap:10px}
+.id-rows div{display:grid; grid-template-columns:90px 1fr; gap:12px; font-size:var(--t-sm)}
+.id-rows dt{font:500 var(--t-xs)/1.9 var(--font-mono); letter-spacing:.08em; text-transform:uppercase; color:var(--muted)}
+.id-rows dd{margin:0}
+
+/* highlight strip */
+.strip{display:grid; grid-template-columns:repeat(3,1fr); border-block:1px solid var(--line)}
+.strip > div{padding:22px 20px; display:grid; gap:6px; min-width:0}
+.strip > div + div{border-left:1px solid var(--line)}
+.strip b{font:800 1.15rem/1.15 var(--font-display); font-stretch:125%; text-transform:uppercase}
+.strip span:last-child{color:var(--muted); font-size:var(--t-sm)}
+
+/* process */
+.process{list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(3,1fr); gap:0; border-top:1px solid var(--line); position:relative}
+.process li{display:grid; grid-template-rows:auto 1fr; gap:18px; padding:28px 28px 8px 0; position:relative; min-width:0}
+.process li + li{padding-left:28px; border-left:1px solid var(--line)}
+.process li::before{content:""; position:absolute; top:-1px; left:0; width:48px; height:3px; background:var(--accent)}
+.process li + li::before{left:28px}
+.num{font:800 clamp(3rem,6vw,4.4rem)/.85 var(--font-display); font-stretch:125%; color:transparent; -webkit-text-stroke:1.5px var(--accent); letter-spacing:-.02em}
+.step{display:grid; gap:10px; align-content:start}
+.step .mono{color:var(--accent)}
+.step h3{font-size:1.35rem; font-weight:800; line-height:1.1}
+.step p{margin:0; color:var(--muted); max-width:42ch}
+.proof{margin-top:8px; padding-top:12px; border-top:1px dashed var(--line); font:500 var(--t-xs)/1.5 var(--font-mono); letter-spacing:.04em; color:var(--fg)}
+.proof b{font-weight:500; color:var(--muted); text-transform:uppercase; letter-spacing:.1em; margin-right:10px}
+@media (max-width:900px){
+  .process{grid-template-columns:1fr}
+  .process li,.process li + li{grid-template-columns:96px 1fr; grid-template-rows:auto; padding:26px 0; border-left:0}
+  .process li + li{border-top:1px solid var(--line)}
+  .process li + li::before{left:0}
+}
+@media (max-width:520px){
+  .process li,.process li + li{grid-template-columns:1fr; gap:12px}
+  .num{font-size:2.6rem}
+}
+
+
+/* teaser */
+.teaser{display:grid; grid-template-columns:1.1fr 1fr; gap:40px; align-items:end; border:1px solid var(--line); background:var(--surface); padding:36px}
+.teaser h2{font-size:clamp(1.6rem,3.4vw,2.4rem); font-weight:800; line-height:1.02; margin-top:12px}
+.teaser p{margin:0 0 18px; color:var(--muted); max-width:52ch}
+/* research focus */
+.focus{display:grid; grid-template-columns:repeat(3,1fr); gap:0; border-top:1px solid var(--line)}
+.focus article{padding:26px 26px 8px 0; display:grid; gap:12px; align-content:start; position:relative; min-width:0}
+.focus article + article{padding-left:26px; border-left:1px solid var(--line)}
+.focus article::before{content:""; position:absolute; top:-1px; left:0; width:48px; height:3px; background:var(--accent)}
+.focus article + article::before{left:26px}
+.focus .mono{color:var(--accent)}
+.focus h3{font-size:1.4rem; font-weight:800; line-height:1.05}
+.focus p{margin:0; color:var(--muted)}
+.qs{list-style:none; margin:6px 0 0; padding:12px 0 0; border-top:1px dashed var(--line); display:grid; gap:6px; font:500 var(--t-sm)/1.4 var(--font-mono)}
+.qs li::before{content:"? "; color:var(--accent)}
+/* coursework */
+.cw{display:grid; grid-template-columns:1fr 1fr; gap:20px}
+.cw > div{border:1px solid var(--line); background:var(--surface); padding:24px; display:grid; gap:14px; align-content:start}
+.list{list-style:none; margin:0; padding:0; display:grid}
+.list li{display:grid; gap:2px; padding-block:12px; border-top:1px solid var(--line)}
+.list li:first-child{border-top:0; padding-top:0}
+.list b{font-weight:500; font-style:italic; opacity:.75}
+.list span{font:500 var(--t-xs)/1.5 var(--font-mono); color:var(--muted); letter-spacing:.04em}
+.list em{color:var(--muted); font-size:var(--t-sm)}
+.band-p{margin:0; color:var(--muted); max-width:56ch}
+@media (max-width:900px){
+  .teaser{grid-template-columns:1fr; gap:20px; padding:24px}
+  .focus{grid-template-columns:1fr}
+  .focus article,.focus article + article{padding:24px 0; border-left:0}
+  .focus article + article{border-top:1px solid var(--line)}
+  .focus article + article::before{left:0}
+  .cw{grid-template-columns:1fr}
+}
+
+
+/* research assistant */
+.ra{border:1px solid var(--line); border-left:3px solid var(--accent); background:var(--surface); padding:20px 24px; display:grid; gap:8px; margin-bottom:20px}
+.ra p{margin:0; font-size:var(--t-lg); max-width:60ch}
+.ra strong{font-weight:600}
+/* featured paper */
+.links .avail{align-self:center; margin-right:6px}
+.paper{border:1px solid var(--line); background:var(--surface); padding:36px; display:grid; gap:14px; margin-bottom:20px; position:relative}
+.paper::before{content:""; position:absolute; top:-1px; left:36px; width:64px; height:3px; background:var(--accent)}
+.paper-meta{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap}
+.paper-meta .mono:first-child{color:var(--accent)}
+.paper h3{font-size:clamp(1.6rem,3.4vw,2.4rem); font-weight:800; line-height:1.02}
+.paper h3 em{font-style:italic}
+.paper .sub{margin:-4px 0 6px; font-size:var(--t-lg); color:var(--muted); font-style:italic}
+.paper-body{display:grid; grid-template-columns:1.5fr 1fr; gap:36px; align-items:start}
+.paper-body p{margin:0 0 14px; max-width:62ch}
+.paper-body strong{color:var(--accent); font-weight:600}
+.paper-facts{margin:0; border:1px solid var(--line); background:var(--bg)}
+.paper-facts div{display:grid; grid-template-columns:96px 1fr; gap:12px; padding:11px 14px; border-bottom:1px solid var(--line); font-size:var(--t-sm)}
+.paper-facts div:last-child{border-bottom:0}
+.paper-facts dt{font:500 var(--t-xs)/1.9 var(--font-mono); letter-spacing:.08em; text-transform:uppercase; color:var(--muted)}
+.paper-facts dd{margin:0}
+.cw.one{grid-template-columns:1fr}
+.list li.real b{font-style:normal; opacity:1}
+@media (max-width:900px){ .paper{padding:24px} .paper::before{left:24px} .paper-body{grid-template-columns:1fr; gap:20px} }
+
+
+/* case study */
+.cs{display:grid; gap:0; padding-block:40px 64px}
+.cs-head{display:grid; gap:16px; padding-bottom:40px}
+.back{text-decoration:none; width:fit-content}
+.back:hover{color:var(--fg)}
+.eyebrow{color:var(--accent)}
+.cs-title{font-size:clamp(3rem,9vw,6.5rem); font-weight:800; line-height:.88}
+.cs-sub{font-size:clamp(1.15rem,2.2vw,1.45rem); color:var(--muted); margin:0; max-width:40ch}
+.cs-meta{margin:8px 0 0; display:grid; grid-template-columns:repeat(4,1fr); border-block:1px solid var(--line)}
+.cs-meta div{padding:16px 18px 16px 0; display:grid; gap:6px; align-content:start; min-width:0}
+.cs-meta div + div{padding-left:18px; border-left:1px solid var(--line)}
+.cs-meta dt{font:500 var(--t-xs)/1 var(--font-mono); letter-spacing:.08em; text-transform:uppercase; color:var(--muted)}
+.cs-meta dd{margin:0; font-size:var(--t-sm)}
+.cs-shot{margin:0; border:1px solid var(--line); background:var(--surface)}
+.cs-shot img{display:block; width:100%; height:auto}
+.cs-shot figcaption,.screens figcaption{padding:12px 16px; font-size:var(--t-sm); color:var(--muted); border-top:1px solid var(--line)}
+.screens figcaption b{color:var(--fg); font-weight:500}
+.cs-sec{padding-block:56px; border-top:1px solid var(--line); display:grid; gap:28px}
+.cs-sec:first-of-type{border-top:0}
+.step-no{color:var(--accent)}
+.cs-cols{display:grid; grid-template-columns:1fr 1.5fr; gap:48px; align-items:start}
+.cs-cols h3,.cs-h{font-size:clamp(1.5rem,3vw,2.1rem); font-weight:800; line-height:1.05}
+.prose p{margin:0 0 16px; max-width:64ch; font-size:1.05rem}
+.prose strong{color:var(--accent); font-weight:600}
+.todo-note{font:500 var(--t-sm)/1.5 var(--font-mono)!important; color:var(--accent)!important; background:var(--accent-soft); padding:10px 12px}
+.windows{display:grid; grid-template-columns:repeat(4,1fr); gap:12px}
+.windows div{border:1px dashed var(--line); padding:16px; display:grid; gap:6px}
+.windows b{font:800 1.05rem/1.1 var(--font-display); font-stretch:125%; text-transform:uppercase}
+.pull{margin:0; border-left:3px solid var(--accent); padding:6px 0 6px 24px; display:grid; gap:10px}
+.pull p{margin:0; font:800 clamp(1.3rem,2.8vw,1.9rem)/1.15 var(--font-display); font-stretch:110%; max-width:34ch}
+.hmw{margin:0; font:800 clamp(1.6rem,3.8vw,2.8rem)/1.1 var(--font-display); font-stretch:110%; max-width:30ch; text-wrap:balance}
+.hmw em{font-style:normal; color:var(--accent)}
+.decisions{display:grid; grid-template-columns:repeat(2,1fr); gap:20px}
+.decisions article{border:1px solid var(--line); background:var(--surface); padding:22px; display:grid; gap:12px; align-content:start; min-width:0}
+.decisions article > .mono{color:var(--accent)}
+.decisions h4{margin:0; font:800 1.2rem/1.1 var(--font-display); font-stretch:125%; text-transform:uppercase}
+.ba{display:grid; grid-template-columns:1fr 1fr; gap:0; border:1px solid var(--line); background:var(--bg)}
+.ba > div{padding:12px 14px; display:grid; gap:6px; align-content:start}
+.ba > div + div{border-left:1px solid var(--line)}
+.ba > div + div .mono{color:var(--ok)}
+.ba p{margin:0; font-size:var(--t-sm); color:var(--muted)}
+.ba > div + div p{color:var(--fg)}
+.screens{display:grid; grid-template-columns:1fr 1fr; gap:20px}
+.screens figure{margin:0; border:1px solid var(--line); background:var(--surface)}
+.screens img{display:block; width:100%; height:auto}
+.screens .span2{grid-column:span 2}
+.tbl{border:1px solid var(--line); overflow-x:auto; background:var(--surface)}
+.tbl table{border-collapse:collapse; width:100%; font-size:var(--t-sm)}
+.tbl th,.tbl td{text-align:left; padding:12px 16px; border-bottom:1px solid var(--line); vertical-align:top}
+.tbl th{font:500 var(--t-xs)/1 var(--font-mono); letter-spacing:.08em; text-transform:uppercase; color:var(--muted)}
+.tbl td:first-child{color:var(--fg); font-weight:500; min-width:160px}
+.tbl td{color:var(--muted)}
+.tbl tr:last-child td{border-bottom:0}
+.outcome{display:grid; grid-template-columns:repeat(3,1fr); gap:20px}
+.outcome > div{border-top:3px solid var(--accent); padding-top:16px; display:grid; gap:10px; align-content:start}
+.outcome p{margin:0; color:var(--muted)}
+.cs-foot{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; padding-top:32px; border-top:1px solid var(--line)}
+@media (max-width:900px){
+  .cs-meta{grid-template-columns:1fr 1fr}
+  .cs-meta div:nth-child(3){padding-left:0; border-left:0}
+  .cs-meta div:nth-child(n+3){border-top:1px solid var(--line)}
+  .cs-cols{grid-template-columns:1fr; gap:20px}
+  .windows{grid-template-columns:1fr 1fr}
+  .decisions,.screens,.outcome{grid-template-columns:1fr}
+  .screens .span2{grid-column:auto}
+}
+@media (max-width:520px){
+  .cs-meta{grid-template-columns:1fr}
+  .cs-meta div,.cs-meta div + div{padding-left:0; border-left:0}
+  .cs-meta div + div{border-top:1px solid var(--line)}
+  .ba{grid-template-columns:1fr}
+  .ba > div + div{border-left:0; border-top:1px solid var(--line)}
+}
+
+/* featured cards */
+.featured{display:grid; grid-template-columns:1fr 1fr; gap:20px}
+.card{all:unset; cursor:pointer; display:grid; grid-template-rows:auto 1fr; border:1px solid var(--line); background:var(--surface); min-width:0}
+.card:hover{border-color:var(--muted)}
+.card:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
+.card .thumb{aspect-ratio:16/9; max-width:100%; overflow:hidden; border-bottom:1px solid var(--line); background:var(--raised); position:relative}
+.card .thumb img{width:100%; height:100%; object-fit:cover; object-position:left top; display:block; transition:transform .5s ease}
+.card:hover .thumb img{transform:scale(1.03)}
+.card .thumb.phones{display:flex; justify-content:center; align-items:center; gap:5%; padding:5%; background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px); background-size:28px 28px}
+.card .thumb.phones img{width:22%; height:auto; border-radius:10px; border:1px solid var(--line)}
+.card-body{padding:20px 22px 22px; display:grid; gap:8px; align-content:start}
+.card-body h3{font-size:1.6rem; font-weight:800; line-height:1}
+.card-body p{margin:0; color:var(--muted); font-size:var(--t-sm)}
+.card-body .more{font:600 var(--t-xs)/1 var(--font-mono); letter-spacing:.1em; text-transform:uppercase; color:var(--accent); margin-top:6px}
+
+/* cta band */
+.band{border:1px solid var(--line); background:var(--surface); padding:36px; display:flex; justify-content:space-between; align-items:center; gap:24px; flex-wrap:wrap}
+.band h2{font-size:clamp(1.6rem,3.6vw,2.4rem); font-weight:800; line-height:1; max-width:20ch}
+.home-section{padding-block:56px}
+.home-section + .home-section{border-top:1px solid var(--line)}
+
+@media (prefers-reduced-motion:reduce){ .card .thumb img{transition:none} }
+@media (max-width:900px){
+  .home-hero{grid-template-columns:1fr; gap:32px; padding-top:48px}
+  .portrait{aspect-ratio:16/10}
+  .featured{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .strip{grid-template-columns:1fr}
+  .strip > div + div{border-left:0; border-top:1px solid var(--line)}
+  .band{padding:24px}
+}
+</style>
+</head>
+<body>
+
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#home" data-go="home">Julian Zeppa</a>
+    <nav aria-label="Pages">
+      <a href="#home" data-go="home">Home</a><a href="#about" data-go="about">About</a><a href="#work" data-go="work">Work</a><a href="#resume" data-go="resume">Résumé</a><a href="#contact" data-go="contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="view" data-view="home">
+  <div class="wrap">
+    <section class="home-hero" aria-labelledby="home-title">
+      <div class="copy">
+        <span class="mono status"><i></i>Open to product design roles in defense tech</span>
+        <h1 id="home-title">Designing for<br><span>decisions.</span></h1>
+        <p class="lede">I'm <strong>Julian Zeppa</strong>, a product designer, co-founder of Armada Strategic, and political science student at the University of Miami. I design and ship software, from government intelligence tools to consumer apps, and I'm happiest when the problem involves real users and messy data.</p>
+        <div class="cta">
+          <a class="btn primary" href="#work" data-go="work">View my work</a>
+          <a class="btn" href="#resume" data-go="resume">Read my résumé</a>
+        </div>
+      </div>
+      <div class="idcard" aria-label="Profile summary">
+        <span class="corner tl"></span><span class="corner tr"></span><span class="corner bl"></span><span class="corner br"></span>
+        <div class="id-top"><span class="mono">Profile</span><span class="mono">JZ-01</span></div>
+        <div class="mark">JZ</div>
+        <div class="id-name"><b>Julian Zeppa</b><span class="mono">Product designer · Co-founder</span></div>
+        <dl class="id-rows">
+          <div><dt>Company</dt><dd>Armada Strategic</dd></div>
+          <div><dt>School</dt><dd>University of Miami, 2027</dd></div>
+          <div><dt>Focus</dt><dd>Defense &amp; modern warfare</dd></div>
+          <div><dt>Shipped</dt><dd>Civic.OS · Guppo</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <div class="strip">
+      <div><span class="mono">Design</span><b>2 products shipped</b><span>A government platform and a consumer iOS app</span></div>
+      <div><span class="mono">Company</span><b>Co-founder, Armada Strategic</b><span>Defense technology &amp; government contracting</span></div>
+      <div><span class="mono">Education</span><b>B.A. Political Science</b><span>University of Miami · Class of 2027</span></div>
+    </div>
+
+    <section class="home-section" aria-labelledby="what-title">
+      <div class="sec-head"><h2 id="what-title">How I work</h2></div>
+      <ol class="process">
+        <li>
+          <span class="num">01</span>
+          <div class="step">
+            <span class="mono">Understand</span>
+            <h3>Go where the work happens</h3>
+            <p>Before I designed anything for a district office, I spent a summer working in one, answering constituent calls and tracking cases by hand. The pain points were obvious from the inside.</p>
+            <span class="proof"><b>In practice</b> SF District 2 → Civic.OS</span>
+          </div>
+        </li>
+        <li>
+          <span class="num">02</span>
+          <div class="step">
+            <span class="mono">Structure</span>
+            <h3>Make the important thing obvious</h3>
+            <p>Civic.OS turns five data sources into three questions staff ask every morning. Guppo turns 144 species into one collection you can read at a glance.</p>
+            <span class="proof"><b>In practice</b> Civic.OS · Guppo</span>
+          </div>
+        </li>
+        <li>
+          <span class="num">03</span>
+          <div class="step">
+            <span class="mono">Ship</span>
+            <h3>Build it, then keep going</h3>
+            <p>I take ideas all the way to working software, building with AI-assisted development. Civic.OS is in development for a real office, and Guppo is live on the App Store.</p>
+            <span class="proof"><b>In practice</b> 2 products shipped in 2026</span>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="home-section" aria-labelledby="me-title">
+      <div class="teaser">
+        <div><span class="mono">About me</span><h2 id="me-title">I study how wars are fought, funded and decided.</h2></div>
+        <div><p>Most of my coursework and research at the University of Miami focuses on defense: the politics behind it, and how warfare is changing. That's why I want to design software for the people doing that work.</p><a class="btn" href="#about" data-go="about">More about me →</a></div>
+      </div>
+    </section>
+
+    <section class="home-section" aria-labelledby="feat-title">
+      <div class="sec-head"><h2 id="feat-title">Featured work</h2><a class="mono" href="#work" data-go="work">All work →</a></div>
+      <div class="featured">
+        <a class="card" href="#case" data-go="case">
+          <div class="thumb"><img src="img/civic-operations.jpg" alt="Civic.OS operations center" loading="lazy"></div>
+          <div class="card-body"><span class="mono">Armada Strategic · Government</span><h3>Civic.OS</h3><p>Designing an intelligence platform that fuses five data sources into one evidence-backed daily briefing.</p><span class="more">Read the case study →</span></div>
+        </a>
+        <a class="card" href="#work" data-go="work">
+          <div class="thumb phones"><img src="img/guppo-home.jpg" alt="Guppo home screen" loading="lazy"><img src="img/guppo-dex.jpg" alt="Guppodex" loading="lazy"><img src="img/guppo-ranks.jpg" alt="Guppo ranks" loading="lazy"></div>
+          <div class="card-body"><span class="mono">Independent · iOS</span><h3>Guppo</h3><p>A consumer iOS app: photo-based species ID, a collectible 144-species Dex, and privacy-first maps.</p><span class="more">See the project →</span></div>
+        </a>
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="band"><h2>Designing software for defense and national security.</h2><a class="btn primary" href="#contact" data-go="contact">Get in touch</a></div>
+    </section>
+  </div>
+</div>
+
+<div class="view" data-view="about" hidden><div class="wrap">
+  <section class="sec page" aria-labelledby="about-title">
+    <div class="sec-head"><h2 id="about-title">About</h2></div>
+    <div class="about">
+      <div>
+        <p>I'm a product designer and co-founder of Armada Strategic, and I'm finishing a B.A. in political science at the University of Miami. Most of my classes and research focus on defense: how nations decide to build and use military power, and how technology is changing what war looks like.</p>
+        <p>I didn't take a straight line here. I've worked in a supervisor's office in San Francisco, in law firms in Miami and Los Angeles, at the polls on election day, and behind the counter of a dive shop. Each one taught me how people actually get work done under pressure. I want to bring that, along with what I've learned about defense, to the software analysts and operators rely on.</p>
+      </div>
+      <dl class="facts">
+        <div><dt>Studying</dt><dd>B.A. Political Science, University of Miami, 2027</dd></div>
+        <div><dt>Focus</dt><dd>Defense politics, Russia &amp; Ukraine, maritime security</dd></div>
+        <div><dt>Building</dt><dd>Armada Strategic · Civic.OS · Guppo</dd></div>
+        <div><dt>Based</dt><dd>San Francisco · Miami</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="focus-title">
+    <div class="sec-head"><h2 id="focus-title">Research focus</h2><span class="mono">University of Miami · Political Science</span></div>
+    <div class="focus">
+      <article>
+        <span class="mono">Area 01</span>
+        <h3>Defense politics</h3>
+        <p>How ideology and domestic politics drive military action, from budgets and procurement in Washington to the nationalist movements shaping Russia's war in Ukraine.</p>
+        <ul class="qs"><li>What ideas justify a war at home?</li><li>Who shapes what comes after?</li></ul>
+      </article>
+      <article>
+        <span class="mono">Area 02</span>
+        <h3>Warfare &amp; security</h3>
+        <p>How violence starts and spreads: insurgency and guerrilla tactics, state collapse, non-state actors and maritime security, and what modern conflicts teach about drones, autonomy and how fast militaries adapt.</p>
+        <ul class="qs"><li>Why does violence emerge where it does?</li><li>Can it be predicted before it happens?</li></ul>
+      </article>
+      <article>
+        <span class="mono">Area 03</span>
+        <h3>Defense technology</h3>
+        <p>The shift toward software-defined defense: new entrants in the industrial base, data and decision-support tools, and how the people using them stay in control.</p>
+        <ul class="qs"><li>How do operators trust what software tells them?</li><li>Where does the human stay in the loop?</li></ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="course-title">
+    <div class="sec-head"><h2 id="course-title">Selected research</h2></div>
+    <div class="ra"><span class="mono">Research assistant</span><p>I work as a research assistant to <strong>Professor Costantino Pischedda</strong> at the University of Miami, studying how guerrilla insurgencies use conventional and unconventional tactics.</p></div>
+    <article class="paper">
+      <div class="paper-meta">
+        <span class="mono">Featured paper · POL 571 · 2026</span>
+        <span class="mono">14 pp · 42 notes · 15 sources</span>
+      </div>
+      <h3>The 2009 Hijacking of the Maersk <em>Alabama</em></h3>
+      <p class="sub">When Desperation Meets Opportunity</p>
+      <div class="paper-body">
+        <div>
+          <p>A case study of the hijacking of the Maersk <em>Alabama</em> and the capture of Captain Richard Phillips, set against Somalia's collapse after 1991. I argue that piracy isn't random. It's predictable when two conditions meet: <strong>opportunity</strong>, where weak central governance leaves the sea without rule of law or deterrence, and <strong>motivation</strong>, where people lose the livelihoods that kept them out of it.</p>
+          <p>To test that, the paper compares Somalia with piracy in the 17th- and 18th-century Caribbean. There, distant empires left whole territories ungoverned, and the end of privateering in 1713 left skilled seamen without lawful work. Two theatres, centuries apart, show the same pattern.</p>
+        </div>
+        <dl class="paper-facts">
+          <div><dt>Question</dt><dd>What conditions make maritime piracy develop?</dd></div>
+          <div><dt>Method</dt><dd>Case study and historical comparison</dd></div>
+          <div><dt>Frameworks</dt><dd>Weber's state monopoly on force; economic violence</dd></div>
+          <div><dt>Finding</dt><dd>Piracy follows predictable conditions: permissive environment plus loss of livelihood</dd></div>
+        </dl>
+      </div>
+      <div class="links"><span class="mono avail">Full paper available on request</span><a class="btn" href="#contact" data-go="contact">Request a copy →</a></div>
+    </article>
+
+    <article class="paper">
+      <div class="paper-meta">
+        <span class="mono">Paper · POL 384 · Spring 2025</span>
+        <span class="mono">15 pp · 20 notes · 20 sources</span>
+      </div>
+      <h3>It's All About the Blood</h3>
+      <p class="sub">A Deep Dive Into Russian Ultranationalism</p>
+      <div class="paper-body">
+        <div>
+          <p>An analysis of Russian ethnonationalism and its role in the war in Ukraine. I trace how the Kremlin's <strong>Russkiy Mir</strong> ideology, reinforced by Alexander Dugin and the Russian Orthodox Church, turned the idea of a "diasporic empire" into a justification for annexing Crimea and invading Ukraine.</p>
+          <p>The paper then compares two armed nationalist groups fighting on opposite sides: the <strong>Russian Volunteer Corps</strong>, which fights for Ukraine and wants a smaller, ethnically homogeneous Russia, and the <strong>Russian Imperial Movement</strong>, a U.S.-designated terrorist group that wants an even more expansionist one. I close by weighing which scenario is more likely in a post-Putin Russia, and why the outcome of the war decides it.</p>
+        </div>
+        <dl class="paper-facts">
+          <div><dt>Question</dt><dd>What role could ethnonationalists play in a post-Putin Russia?</dd></div>
+          <div><dt>Method</dt><dd>Ideological analysis and comparison of two armed groups</dd></div>
+          <div><dt>Topics</dt><dd>Russkiy Mir, Dugin, the Orthodox Church, RVC, RIM</dd></div>
+          <div><dt>Finding</dt><dd>Both groups can sway Russia's future, and the war's outcome decides which</dd></div>
+        </dl>
+      </div>
+      <div class="links"><span class="mono avail">Full paper available on request</span><a class="btn" href="#contact" data-go="contact">Request a copy →</a></div>
+    </article>
+
+    <div class="cw one">
+      <div>
+        <span class="mono">Selected coursework</span>
+        <ul class="list">
+          <li class="real"><b>POL 571</b><span>Prof. McGuinn · 2026 · Maritime piracy case study</span></li>
+          <li class="real"><b>POL 384</b><span>Prof. Beck · Spring 2025 · Russian nationalism and the war in Ukraine</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" aria-labelledby="why-title">
+    <div class="band"><h2 id="why-title">Why design for defense</h2><p class="band-p">I've spent years studying how militaries and governments make decisions. Good tools help people make those decisions faster and more safely, with the evidence in front of them. That's the software I want to design.</p></div>
+  </section>
+</div></div>
+
+<div class="view" data-view="work" hidden><div class="wrap">
+  <section class="sec page"  aria-labelledby="work-title">
+    <div class="sec-head"><h2 id="work-title">Work</h2><span class="mono">02 projects</span></div>
+    <div class="projects">
+      <article class="project">
+        <div class="visual"><img class="shot" src="img/civic-operations.jpg" alt="Civic.OS operations center showing active cases, detected patterns and system status" loading="lazy"></div>
+        <div class="info">
+          <span class="idx">01 / 02 · Armada Strategic · Built for SF District 2</span>
+          <h3>Civic.OS</h3>
+          <p>An intelligence platform for a city council district office. It fuses 311 tickets, the office phone log, local news and Reddit into one operating picture, and each morning answers what is happening, what changed and what needs attention. Every finding links back to the records behind it, and every figure comes from a stated rule.</p>
+          <dl class="specs"><dt>Role</dt><dd>Product design lead; built with AI-assisted development</dd><dt>Stack</dt><dd>React, TypeScript, Express, Supabase, Leaflet</dd><dt>Year</dt><dd>2026</dd><dt>Status</dt><dd>In development for SF District 2 · live demo</dd></dl>
+          <div class="links"><a class="btn primary" href="#case" data-go="case">Read the case study →</a><a class="btn" href="https://civicos-demo.netlify.app" target="_blank" rel="noopener">Live demo ↗</a></div>
+        </div>
+      </article>
+      <article class="project">
+        <div class="visual phones">
+          <img src="img/guppo-home.jpg" alt="Guppo home screen" loading="lazy">
+          <img src="img/guppo-dex.jpg" alt="Guppodex species collection" loading="lazy">
+          <img src="img/guppo-ranks.jpg" alt="Guppo rankings" loading="lazy">
+        </div>
+        <div class="info">
+          <span class="idx">02 / 02 · Independent</span>
+          <h3>Guppo</h3>
+          <p>An iPhone app that turns fishing into a collection. Snap a photo of a catch, Guppo identifies the species and unlocks its card in a 144-species Guppodex, with personal bests, weekly challenges and a catch map that keeps exact spots private by default.</p>
+          <dl class="specs"><dt>Role</dt><dd>Product designer and creator; built with AI-assisted development</dd><dt>Stack</dt><dd>React Native, Expo, TypeScript, Supabase, SQLite</dd><dt>Year</dt><dd>2026</dd><dt>Status</dt><dd>Live on the App Store</dd></dl>
+          <div class="links"><a class="btn primary" href="https://apps.apple.com/app/id6815083836" target="_blank" rel="noopener">Download on the App Store ↗</a></div>
+        </div>
+      </article>
+    </div>
+  </section>
+</div></div>
+
+<div class="view" data-view="case" hidden><div class="wrap">
+  <article class="cs">
+    <header class="cs-head">
+      <a class="mono back" href="#work" data-go="work">← All work</a>
+      <span class="mono eyebrow">Case study · Armada Strategic · 2026</span>
+      <h2 class="cs-title">Civic.OS</h2>
+      <p class="cs-sub">Giving a city council office one clear picture of its district every morning. After I pitched it, the supervisor asked me to keep building it for his office.</p>
+      <dl class="cs-meta">
+        <div><dt>Role</dt><dd>Product designer. Research, product, interaction design, build</dd></div>
+        <div><dt>Users</dt><dd>A district office of four staff and the supervisor</dd></div>
+        <div><dt>Team</dt><dd>Just me, building with AI coding tools</dd></div>
+        <div><dt>Status</dt><dd>In development for the office · public demo on a fictional city</dd></div>
+      </dl>
+      <div class="cta"><a class="btn primary" href="https://civicos-demo.netlify.app" target="_blank" rel="noopener">Open the live demo ↗</a></div>
+    </header>
+
+    <figure class="cs-shot wide"><img src="img/civic-operations.jpg" alt="Civic.OS Operations Center" loading="lazy"><figcaption>Operations Center: the district at a glance. Every observation links to the records behind it.</figcaption></figure>
+
+    <section class="cs-sec">
+      <span class="mono step-no">01 · Context</span>
+      <div class="cs-cols">
+        <h3>I found the problem from the inside</h3>
+        <div class="prose">
+          <p>In summer 2026 I worked as a legislative intern in San Francisco's District 2 supervisor's office. A district office is the first place residents call when the city lets them down, but staff see the district through four disconnected windows: a phone log in a spreadsheet, 311 tickets in the city's system, local news, and what neighbors post online.</p>
+          <p>Nobody had time to connect them. So the questions that mattered went unanswered: which problems are growing, which ones the city marked "fixed" without fixing, which departments are falling behind, and where the office can actually make a difference today.</p>
+        </div>
+      </div>
+      <div class="windows" aria-label="The four disconnected sources">
+        <div><span class="mono">Phone log</span><b>Spreadsheet</b></div>
+        <div><span class="mono">311 tickets</span><b>City system</b></div>
+        <div><span class="mono">Local news</span><b>Outlets &amp; RSS</b></div>
+        <div><span class="mono">Neighbors</span><b>Reddit, Nextdoor</b></div>
+      </div>
+    </section>
+
+    <section class="cs-sec">
+      <span class="mono step-no">02 · Research</span>
+      <div class="cs-cols">
+        <h3>The office already had a mental model. I built around it.</h3>
+        <div class="prose">
+          <p>When I asked how staff decide what to act on, a supervisor described two distinctions. Is a problem <strong>acute</strong>, a one-time occurrence, or <strong>general</strong>, continuous and ongoing? And for acute problems, is it <strong>actionable</strong>, something the office can do now, or does it call for <strong>outreach</strong>, telling residents with no immediate action?</p>
+          <p>That became the Triage view. Rather than invent a new scoring system, I turned the office's own decision tree into explicit rules, so the software sorts issues the way staff already think about them.</p>
+          <p>I worked alongside the whole office, four staff and the supervisor, for the full summer. The biggest finding was simple: staff spent hours entering data by hand, and almost none of it was ever analyzed. The work was tedious, and the records it produced weren't answering anyone's questions.</p>
+        </div>
+      </div>
+      <blockquote class="pull"><p>"Is it a one-time thing or does it keep happening? And can we actually do something about it today?"</p><cite class="mono">The two questions behind every triage decision, paraphrased from the office</cite></blockquote>
+      <figure class="cs-shot"><img src="img/civic-triage.jpg" alt="Civic.OS Triage view sorting 647 issues into acute and general, then actionable and outreach" loading="lazy"><figcaption>Triage: 647 active issues sorted by the office's own decision tree. Every issue shows the rule that placed it and a suggested next step.</figcaption></figure>
+    </section>
+
+    <section class="cs-sec">
+      <span class="mono step-no">03 · The brief</span>
+      <p class="hmw">How might we tell a district office <em>what's happening</em>, <em>what changed</em>, and <em>what needs attention</em> every morning, without giving staff more work?</p>
+    </section>
+
+    <section class="cs-sec">
+      <span class="mono step-no">04 · Key decisions</span>
+      <h3 class="cs-h">What I changed, and why</h3>
+      <div class="decisions">
+        <article>
+          <span class="mono">Ranking</span>
+          <h4>Rank by open work, not by novelty</h4>
+          <div class="ba"><div><span class="mono">Before</span><p>The first briefing led with an 11× spike: 11 reports on one street. Dramatic, but small.</p></div><div><span class="mono">After</span><p>The real story was a 3× rise with 52 reports still open. I reweighted priority by open workload, with the multiplier capped.</p></div></div>
+        </article>
+        <article>
+          <span class="mono">Trust</span>
+          <h4>Readable rules over a black box</h4>
+          <div class="ba"><div><span class="mono">Risk</span><p>Staff won't act on a flag they can't explain to their boss or a resident.</p></div><div><span class="mono">Decision</span><p>Everything that ranks or flags is a stated rule. Each issue shows why it surfaced and links to its records.</p></div></div>
+        </article>
+        <article>
+          <span class="mono">Data</span>
+          <h4>Measure from the data's edge, not the clock</h4>
+          <div class="ba"><div><span class="mono">Before</span><p>City data publishes a day late, and police reports trickle in for days, so every neighborhood looked quiet.</p></div><div><span class="mono">After</span><p>Trends count back from the newest published record and leave out days still being filed.</p></div></div>
+        </article>
+        <article>
+          <span class="mono">Scope</span>
+          <h4>Be strict about "our district"</h4>
+          <div class="ba"><div><span class="mono">Before</span><p>Long streets cross district lines, and a supervisor can share a surname with a better-known politician.</p></div><div><span class="mono">After</span><p>A story only counts if it names a district neighborhood, landmark or corridor. A street name alone isn't enough.</p></div></div>
+        </article>
+        <article>
+          <span class="mono">Control</span>
+          <h4>Humans stay in charge</h4>
+          <div class="ba"><div><span class="mono">Risk</span><p>Software speaking for an elected official.</p></div><div><span class="mono">Decision</span><p>Civic.OS drafts escalation letters but never sends them. Staff review and send from their own email.</p></div></div>
+        </article>
+        <article>
+          <span class="mono">Privacy</span>
+          <h4>Only public information goes to AI</h4>
+          <div class="ba"><div><span class="mono">Risk</span><p>Constituent calls and case notes leaking to an outside model.</p></div><div><span class="mono">Decision</span><p>AI only summarizes published news and public posts. Private data is blocked in two separate places in the code.</p></div></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="cs-sec">
+      <span class="mono step-no">05 · The product</span>
+      <h3 class="cs-h">One operating picture, built from evidence</h3>
+      <div class="screens">
+        <figure><img src="img/civic-briefing.jpg" alt="Daily briefing written as an email" loading="lazy"><figcaption><b>Daily briefing.</b> A short morning email to the supervisor. Every sentence links to the records behind it.</figcaption></figure>
+        <figure><img src="img/civic-accountability.jpg" alt="Accountability view" loading="lazy"><figcaption><b>Accountability.</b> Problems the city closed but residents reported again within 30 days, and response times against the citywide median.</figcaption></figure>
+        <figure><img src="img/civic-signals.jpg" alt="Signals view" loading="lazy"><figcaption><b>Signals.</b> News and Reddit posts that name a district place, matched to 311 records.</figcaption></figure>
+        <figure><img src="img/civic-escalation.jpg" alt="Escalation letter drafted from evidence" loading="lazy"><figcaption><b>Escalations.</b> One click drafts a letter to a department citing every record, then tracks it from sent to resolved.</figcaption></figure>
+        <figure class="span2"><img src="img/civic-map.jpg" alt="Map of district neighborhoods and hotspots" loading="lazy"><figcaption><b>Map and neighborhoods.</b> Each neighborhood measured against its own normal, with street-level hotspots.</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="cs-sec">
+      <span class="mono step-no">06 · Designed for a government office</span>
+      <div class="cs-cols">
+        <h3>Trust was a design requirement, not a feature</h3>
+        <div class="tbl"><table>
+          <thead><tr><th>Risk</th><th>How the design handles it</th></tr></thead>
+          <tbody>
+            <tr><td>Internal data reaching an outside AI</td><td>Public sources only, enforced twice. Every AI overview is labeled and linked to its source.</td></tr>
+            <tr><td>Residents' contact details</td><td>Masked in lists, excluded from reports, and every view is written to an append-only audit log.</td></tr>
+            <tr><td>Who can do what</td><td>Individual accounts with viewer, operator and admin roles.</td></tr>
+            <tr><td>Speaking for an official</td><td>Drafts only. Staff always send.</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </section>
+
+    <section class="cs-sec">
+      <span class="mono step-no">07 · Outcome &amp; next</span>
+      <div class="outcome">
+        <div><span class="mono">What happened</span><p>I pitched Civic.OS to the supervisor at the end of my internship. He asked me to keep developing it for the office, and I still am.</p></div>
+        <div><span class="mono">What I learned</span><p>Data products earn trust by explaining themselves. Showing the rule behind each flag and the records behind each sentence mattered more than any single feature.</p></div>
+        <div><span class="mono">In progress</span><p>Adding tools to track local politics and to monitor continuing issues in the district over time, so problems that keep coming back stay in view.</p></div>
+      </div>
+    </section>
+
+    <nav class="cs-foot"><a class="btn" href="#work" data-go="work">← Back to work</a><a class="btn primary" href="https://civicos-demo.netlify.app" target="_blank" rel="noopener">Open the live demo ↗</a></nav>
+  </article>
+</div></div>
+
+<div class="view" data-view="resume" hidden><div class="wrap">
+  <section class="sec page"  aria-labelledby="resume-title">
+    <div class="sec-head"><h2 id="resume-title">Résumé</h2><div class="cta"><a class="btn primary" href="docs/Julian_Zeppa_Resume.pdf" target="_blank" rel="noopener">Download résumé (PDF) ↗</a><a class="btn" href="https://www.linkedin.com/in/julian-zeppa-280b41291" target="_blank" rel="noopener">LinkedIn ↗</a></div></div>
+    <div class="sheet">
+      <div class="sheet-head">
+        <div><h3>Julian Zeppa</h3><p>Product designer · Co-founder, Armada Strategic · B.A. Political Science, University of Miami (2027)</p></div>
+        <span class="mono">San Francisco Bay Area · Miami</span>
+      </div>
+      <div class="block" id="experience"><h4 class="mono">Experience</h4>
+    <ol class="timeline">
+      <li class="role">
+        <div class="when"><b>Mar 2026 – Present</b><span class="mono">SF Bay Area</span></div>
+        <div>
+          <h3>Co-Founder · Strategy, Operations &amp; Product Design</h3>
+          <div class="org">Armada Strategic LLC</div>
+          <ul>
+            <li>Co-founded a <strong>defense and security company</strong> pursuing government contracting. Led SAM.gov registration, federal contractor onboarding, procurement and NAICS/PSC research, capability statements and market-entry plans.</li>
+            <li>Led <strong>product design for Civic.OS</strong>, from user research inside a district office to shipped software: an operations dashboard, an evidence-linked daily briefing, pattern detection, maps, escalation tracking and an audit log.</li>
+            <li>Designed the information architecture around three questions staff ask every morning: what's happening, what changed, and what needs attention.</li>
+            <li>Pitched Civic.OS to the District 2 supervisor, who asked me to keep developing it for his office.</li>
+            <li>Produced Armada's brand, video ads and the Civic.OS case study.</li>
+          </ul>
+        </div>
+      </li>
+      <li class="role">
+        <div class="when"><b>Aug 2026 – Present</b><span class="mono">Independent</span></div>
+        <div>
+          <h3>Product Designer &amp; Creator</h3>
+          <div class="org">Guppo (iOS)</div>
+          <ul>
+            <li>Designed and launched a consumer iOS app, now on the App Store, with <strong>photo-based species ID</strong>, a collectible 144-species Dex, weekly challenges and a social feed.</li>
+            <li>Designed <strong>privacy by default</strong>: friends only ever see an approximate catch area, never the exact spot.</li>
+          </ul>
+        </div>
+      </li>
+      <li class="role">
+        <div class="when"><b>May 2026 – Present</b><span class="mono">San Francisco</span></div>
+        <div>
+          <h3>Legislative Intern</h3>
+          <div class="org">City and County of San Francisco · Office of Supervisor Stephen Sherrill, District 2</div>
+          <ul>
+            <li>Handled <strong>constituent services and outreach</strong> for the district office.</li>
+            <li>Mapped how staff tracked constituent issues across calls, 311 and email. That research became the basis for Civic.OS.</li>
+            <li>Helped create and run District 2 entertainment zones, including the <strong>Union Street Entertainment Zone</strong> and World Cup events.</li>
+          </ul>
+        </div>
+      </li>
+      <li class="role">
+        <div class="when"><b>University of Miami</b><span class="mono">Research</span></div>
+        <div>
+          <h3>Research Assistant</h3>
+          <div class="org">Prof. Costantino Pischedda, Department of Political Science</div>
+          <ul><li>Research on the use of <strong>conventional and unconventional tactics by guerrilla insurgencies</strong>.</li></ul>
+        </div>
+      </li>
+      <li class="role">
+        <div class="when"><b>Nov 2025 – May 2026</b><span class="mono">Miami</span></div>
+        <div>
+          <h3>Legal Intern</h3>
+          <div class="org">Altonaga Law PLLC</div>
+          <ul>
+            <li>Researched and drafted appellate briefs and memoranda for federal criminal cases.</li>
+          </ul>
+        </div>
+      </li>
+      <li class="role">
+        <div class="when"><b>May 2025 – May 2026</b><span class="mono">Miami</span></div>
+        <div>
+          <h3>Strategic Partnership Chair</h3>
+          <div class="org">Zeta Beta Tau Fraternity</div>
+          <ul>
+            <li>Ran sponsorship outreach by email and phone, and managed the lead pipeline.</li>
+            <li>Built repeat partnerships with brands including <strong>Peet's Coffee and Red Bull</strong>.</li>
+            <li>Managed the budget and logistics for social, philanthropy and brotherhood events.</li>
+          </ul>
+        </div>
+      </li>
+      <li class="role">
+        <div class="when"><b>Jun – Aug 2025</b><span class="mono">Los Angeles</span></div>
+        <div>
+          <h3>Legal Assistant</h3>
+          <div class="org">Wisner Baum</div>
+          <ul>
+            <li>Managed records for more than 5,000 mass-tort settlement claims in FileVine and ProLaw.</li>
+          </ul>
+        </div>
+      </li>
+    </ol>
+    <div class="earlier">
+      <span class="mono">Earlier</span>
+      <ul>
+        <li><b>Summer Sales Associate</b>, Bamboo Reef Scuba Diving Centers <span class="mono">2024 – 2025</span></li>
+        <li><b>Poll Worker</b>, City and County of San Francisco, multiple elections <span class="mono">2021 – 2023</span></li>
+        <li><b>Summer Legal Intern</b>, Moore Law Group, mass-tort data management <span class="mono">2022</span></li>
+      </ul>
+    </div>
+  </div>
+      <div class="block" id="education"><h4 class="mono">Education</h4>
+    <div class="edu">
+      <div><span class="mono">2023 – 2027</span><h3>University of Miami</h3><p>B.A. Political Science, Minor in History · GPA 3.52. Provost Honor Roll &amp; Dean's List (Fall 2024, Fall 2025, Spring 2026). Focus on defense politics, international relations and modern warfare.</p></div>
+      <div><span class="mono">2019 – 2023</span><h3>Stuart Hall High School</h3><p>High school diploma and International Baccalaureate Diploma.</p></div>
+    </div>
+  </div>
+      <div class="block" id="skills"><h4 class="mono">Skills</h4>
+    <div class="skills">
+      <div><span class="mono">Product design</span><div class="chips"><span>User research</span><span>Information architecture</span><span>Interaction design</span><span>Data visualization</span><span>Prototyping</span></div></div>
+      <div><span class="mono">Building</span><div class="chips"><span>AI-assisted development</span><span>React</span><span>React Native</span><span>TypeScript</span><span>Supabase</span><span>Netlify</span></div></div>
+      <div><span class="mono">Domain</span><div class="chips"><span>Government operations</span><span>Defense &amp; gov contracting</span><span>International relations</span><span>Elections</span></div></div>
+      <div><span class="mono">Research &amp; business</span><div class="chips"><span>Legal research</span><span>Evidence review</span><span>Partnerships</span><span>Brand &amp; video</span></div></div>
+    </div>
+  </div>
+    </div>
+  </section>
+</div></div>
+
+<div class="view" data-view="contact" hidden>
+  <section class="contact">
+  <div class="wrap">
+    <span class="mono">Contact</span>
+    <h2>Let's build something that matters.</h2>
+    <div class="email-row">
+      <span class="email" id="email">jvz9@miami.edu</span>
+      <button class="btn primary" id="copy" type="button">Copy email</button>
+    </div>
+    <div class="socials">
+      <a href="https://www.linkedin.com/in/julian-zeppa-280b41291" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href="docs/Julian_Zeppa_Resume.pdf" target="_blank" rel="noopener">Résumé (PDF) ↗</a>
+    </div>
+  </div>
+</section>
+</div>
+</main>
+
+<footer class="site-foot"><div class="wrap"><span class="mono">© 2026 Julian Zeppa</span><a class="mono" href="https://www.linkedin.com/in/julian-zeppa-280b41291" target="_blank" rel="noopener">LinkedIn ↗</a></div></footer>
+
+<script>
+const VIEWS=["home","about","work","case","resume","contact"];
+function show(v,scroll){
+  if(!VIEWS.includes(v)) v="home";
+  document.querySelectorAll(".view").forEach(el=>el.hidden=el.dataset.view!==v);
+  document.querySelectorAll(".top nav a").forEach(a=>{ if(a.dataset.go===v) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current"); });
+  if(scroll!==false) window.scrollTo({top:0, behavior:"instant"});
+}
+document.addEventListener("click",e=>{
+  const a=e.target.closest("[data-go]"); if(!a) return;
+  e.preventDefault(); show(a.dataset.go);
+  try{ history.replaceState(null,"","#"+a.dataset.go); }catch(_){}
+});
+window.addEventListener("hashchange",()=>show(location.hash.slice(1)));
+show((location.hash||"#home").slice(1), false);
+
+const copyBtn=document.getElementById("copy");
+if(copyBtn) copyBtn.onclick=()=>{
+  const el=document.getElementById("email");
+  const done=()=>{copyBtn.textContent="Copied"; setTimeout(()=>copyBtn.textContent="Copy email",1800);};
+  const fallback=()=>{const s=getSelection(), r=document.createRange(); r.selectNodeContents(el); s.removeAllRanges(); s.addRange(r); copyBtn.textContent="Selected · press ⌘C";};
+  try{ navigator.clipboard.writeText(el.textContent).then(done,fallback);}catch(e){fallback();}
+};
+</script>
+
+</body>
+</html>
