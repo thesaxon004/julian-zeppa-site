@@ -595,9 +595,6 @@ footer{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; pa
 .pop, .intro-run .pop{animation:pop .6s cubic-bezier(.2,.7,.2,1) both !important}
 .ty-on.cur{box-shadow:2px 0 0 0 var(--accent)}
 
-.replay{position:fixed; left:max(16px, env(safe-area-inset-left,0px)); bottom:calc(16px + env(safe-area-inset-bottom,0px)); z-index:20;
-  background:color-mix(in srgb,var(--bg) 80%,transparent); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); padding:10px 12px}
-.replay span{font-size:14px; line-height:0}
 
 /* v2.3 · cursor modes and drag & drop */
 .icur svg{display:block}
@@ -1617,20 +1614,7 @@ if(FINE && !REDUCE){
 
 { const v0=(location.hash||"#home").slice(1); window.__pageEnter(VIEWS.includes(v0)?v0:"home"); }
 
-/* replay button: rebuild the current page from the top */
-if(!REDUCE){
-  const rb=document.createElement("button"); rb.type="button"; rb.className="btn replay"; rb.innerHTML='<span aria-hidden="true">↻</span> Replay build';
-  rb.addEventListener("click",()=>{
-    try{ Object.keys(sessionStorage).filter(k=>k.startsWith("jz-")).forEach(k=>sessionStorage.removeItem(k)); }catch(e){}
-    if(pageRun) pageRun.skipAll();
-    const v=document.querySelector(".view:not([hidden])"); if(!v) return;
-    v.querySelectorAll(".converge.is-merged").forEach(c=>c.querySelector(".cv-toggle")?.click());
-    window.scrollTo({top:0,behavior:"instant"});
-    v.querySelectorAll(".hero3d").forEach(h=>terrains.get(h)?.wake());
-    setTimeout(()=>window.__pageEnter(v.dataset.view),60);
-  });
-  document.body.appendChild(rb);
-}
+
 </script>
 
 </body>
