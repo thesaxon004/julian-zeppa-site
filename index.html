@@ -608,6 +608,26 @@ footer{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; pa
   box-shadow:0 40px 90px -20px rgba(0,0,0,.65), 0 0 0 1px color-mix(in srgb,var(--accent) 45%,transparent); animation:none!important}
 .dropped{animation:drop .5s ease-out}
 @keyframes drop{from{filter:brightness(1.35) saturate(1.1)} to{filter:none}}
+/* RAVEN entry */
+.project .visual.raven-visual{display:grid; place-items:center; align-content:center; gap:14px; background:#09190E; padding:32px; min-height:360px}
+.project:has(.raven-more[open]) .visual.raven-visual{align-content:start; padding-top:64px}
+.project .visual.raven-visual img{width:min(78%,420px); height:auto; display:block; position:static}
+.project .visual.raven-visual .raven-tag{color:#9FB8A5; letter-spacing:.14em; text-align:center}
+.project .raven-more{border-top:1px solid var(--line); padding-top:14px}
+.project .raven-more summary{cursor:pointer; color:var(--accent); list-style:none; display:flex; align-items:center; gap:8px}
+.project .raven-more summary::-webkit-details-marker{display:none}
+.project .raven-more summary::before{content:"+"; font-weight:600}
+.project .raven-more[open] summary::before{content:"−"}
+.project .raven-more summary:focus-visible{outline:2px solid var(--accent); outline-offset:3px}
+.project .raven-grid{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px 24px; margin-top:18px}
+.project .raven-grid section{min-width:0}
+.project .raven-grid h4{margin:0 0 8px; color:var(--muted); font-weight:500}
+.project .raven-grid ul{margin:0; padding-left:16px; display:grid; gap:6px; font-size:var(--t-sm); color:var(--muted)}
+.project .raven-grid b{color:var(--fg); font-weight:500}
+.project .raven-grid p{margin:0 0 10px; font-size:var(--t-sm); color:var(--muted)}
+.project .raven-wide{grid-column:1 / -1}
+.project .raven-note{font-style:italic}
+@media (max-width:640px){ .project .raven-grid{grid-template-columns:minmax(0,1fr)} .project .visual.raven-visual{min-height:0; aspect-ratio:16/11; padding:24px} }
 </style>
 </head>
 <body>
@@ -840,9 +860,9 @@ footer{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; pa
   <section class="hero3d pagehero" data-terrain="{&quot;labels&quot;: [&quot;CIVIC.OS \u00b7 SF D2&quot;, &quot;GUPPO \u00b7 iOS&quot;], &quot;seed&quot;: 23}" aria-labelledby="work-title">
     <canvas class="terrain" aria-hidden="true"></canvas><div class="tags" aria-hidden="true"></div>
     <div class="wrap ph-inner">
-      <span class="mono eyebrow">03 · Work · 02 projects</span>
+      <span class="mono eyebrow">03 · Work · 03 projects</span>
       <h1 class="ph-title" id="work-title">Work</h1>
-      <p class="ph-sub">Two products I designed and shipped in 2026: an intelligence platform for a city council office, and a consumer iPhone app.</p>
+      <p class="ph-sub">Three projects from 2026: an intelligence platform for a city council office, a consumer iPhone app, and a VR drone-operator training simulator.</p>
     </div>
   </section>
   <div class="wrap">
@@ -851,7 +871,7 @@ footer{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; pa
       <article class="project">
         <div class="visual stage" data-tilt><div class="stack"><img class="l" style="--z:0" src="img/civic-map.jpg" alt="" loading="lazy"><span class="ltag mono" style="--z:0">Map</span><img class="l" style="--z:1" src="img/civic-triage.jpg" alt="" loading="lazy"><span class="ltag mono" style="--z:1">Triage</span><img class="l" style="--z:2" src="img/civic-briefing.jpg" alt="" loading="lazy"><span class="ltag mono" style="--z:2">Briefing</span><img class="l" style="--z:3" src="img/civic-operations.jpg" alt="Civic.OS screens (operations, briefing, triage and map) stacked in 3D" loading="lazy"><span class="ltag mono" style="--z:3">Operations</span></div></div>
         <div class="info">
-          <span class="idx">01 / 02 · Armada Strategic · Built for SF District 2</span>
+          <span class="idx">01 / 03 · Armada Strategic · Built for SF District 2</span>
           <h3>Civic.OS</h3>
           <p>An intelligence platform for a city council district office. It fuses 311 tickets, the office phone log, local news and Reddit into one operating picture, and each morning answers what is happening, what changed and what needs attention. Every finding links back to the records behind it, and every figure comes from a stated rule.</p>
           <dl class="specs"><dt>Role</dt><dd>Product design lead; built with AI-assisted development</dd><dt>Stack</dt><dd>React, TypeScript, Express, Supabase, Leaflet</dd><dt>Year</dt><dd>2026</dd><dt>Status</dt><dd>In development for SF District 2 · live demo</dd></dl>
@@ -861,11 +881,92 @@ footer{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; pa
       <article class="project">
         <div class="visual stage fan" data-tilt><div class="fan-inner"><img style="--i:-1" src="img/guppo-home.jpg" alt="Guppo home screen" loading="lazy"><img style="--i:1" src="img/guppo-ranks.jpg" alt="Guppo rankings" loading="lazy"><img style="--i:0" src="img/guppo-dex.jpg" alt="Guppodex species collection" loading="lazy"></div></div>
         <div class="info">
-          <span class="idx">02 / 02 · Independent</span>
+          <span class="idx">02 / 03 · Independent</span>
           <h3>Guppo</h3>
           <p>An iPhone app that turns fishing into a collection. Snap a photo of a catch, Guppo identifies the species and unlocks its card in a 144-species Guppodex, with personal bests, weekly challenges and a catch map that keeps exact spots private by default.</p>
           <dl class="specs"><dt>Role</dt><dd>Product designer and creator; built with AI-assisted development</dd><dt>Stack</dt><dd>React Native, Expo, TypeScript, Supabase, SQLite</dd><dt>Year</dt><dd>2026</dd><dt>Status</dt><dd>Live on the App Store</dd></dl>
           <div class="links"><a class="btn primary" href="https://apps.apple.com/app/id6815083836" target="_blank" rel="noopener">Download on the App Store ↗</a></div>
+        </div>
+      </article>
+      <article class="project">
+        <div class="visual raven-visual">
+          <img src="img/raven-logo.png" alt="RAVEN logo: a targeting reticle shaped like an eye, above the word RAVEN" loading="lazy">
+          <span class="raven-tag mono">Meta Quest · WebXR · Desktop</span>
+        </div>
+        <div class="info">
+          <span class="idx">03 / 03 · Virtual Reality class · Final project</span>
+          <h3>RAVEN</h3>
+          <p>A drone operator training simulator that runs in a web browser and in VR on Meta Quest. The pilot flies over a battlefield modeled on the war in Ukraine and trains on finding, identifying and prioritizing targets while flying in a way that keeps the drone alive. Every scored module ends with an after-action report and a qualification rating.</p>
+          <dl class="specs">
+            <dt>Role</dt><dd>Concept, training design, realism and damage-model design, testing; built with AI-assisted development</dd>
+            <dt>Stack</dt><dd>Three.js (r160), WebXR, custom shaders, Web Audio. One self-contained HTML file</dd>
+            <dt>Year</dt><dd>2026</dd>
+            <dt>Status</dt><dd>Complete · tested on Meta Quest and with a USB radio controller</dd>
+          </dl>
+      
+          <details class="raven-more">
+            <summary class="mono">Features, tech and what I learned</summary>
+            <div class="raven-grid">
+              <section>
+                <h4 class="mono">Training</h4>
+                <ul>
+                  <li><b>Five modules:</b> Free Flight, Target Acquisition, Prioritization, Strike, and a Spectate / photo mode.</li>
+                  <li><b>Two airframes:</b> a hovering grenade bomber (about 60 km/h) and a one-way FPV strike drone (about 110 km/h, 150 in a dive).</li>
+                  <li><b>Three flight models:</b> Assist, Angle and Acro, the rate mode real FPV pilots fly.</li>
+                  <li><b>Rules of engagement:</b> civilian vehicles are no-strike, and hitting one is logged as a violation.</li>
+                </ul>
+              </section>
+              <section>
+                <h4 class="mono">Battlefield</h4>
+                <ul>
+                  <li>About 4 km of steppe, tree lines, trench strongpoints, highways with traffic, villages and a ruined district.</li>
+                  <li>About 100 soldiers and 30 vehicles spread over 2.5 km of front, so targets have to be searched for.</li>
+                  <li>Summer and winter, day and night, and a white-hot thermal camera.</li>
+                </ul>
+              </section>
+              <section>
+                <h4 class="mono">Realism</h4>
+                <ul>
+                  <li>Fire teams use bounding overwatch, cover and dispersion, and react to the drone.</li>
+                  <li>Counter-drone fire, electronic-warfare jamming, and a video link that degrades with range and line of sight.</li>
+                  <li>Wind, payload weight and battery drain, plus a vehicle damage model from my own design document.</li>
+                </ul>
+              </section>
+              <section>
+                <h4 class="mono">Debrief</h4>
+                <ul>
+                  <li>Damage-assessment log and a damage report with a hit-location diagram.</li>
+                  <li><b>Strike Review:</b> a slow-motion replay of the last 8 seconds with blast-radius rings.</li>
+                  <li>A service record with session and career statistics.</li>
+                </ul>
+              </section>
+              <section>
+                <h4 class="mono">Technical</h4>
+                <ul>
+                  <li>No external 3D assets: terrain, models, textures and sound are all generated in code.</li>
+                  <li>Custom shaders for thermal imaging, lens effects, swaying foliage and cloud shadows.</li>
+                  <li>Instanced rendering for tens of thousands of trees and objects, so it runs on a standalone headset.</li>
+                </ul>
+              </section>
+              <section>
+                <h4 class="mono">Runs on</h4>
+                <ul>
+                  <li>Chrome, Edge, Firefox and Safari 17+ on desktop.</li>
+                  <li>Meta Quest 2, 3, 3S and Pro in the Quest Browser, when hosted at its own https address.</li>
+                  <li>USB radio transmitters, gamepads, keyboard and mouse.</li>
+                </ul>
+              </section>
+              <section class="raven-wide">
+                <h4 class="mono">My role and what I learned</h4>
+                <p>I directed the concept, the training design, the realism requirements and the damage-model design, and did all of the testing; Claude handled most of the implementation. The biggest lesson: training value comes from the debrief, not the flight. The after-action reports and Strike Review are what turn a flight into something a pilot can learn from.</p>
+                <p class="raven-note">Speeds, ranges, detection and damage values are approximations chosen for believable training, not validated data.</p>
+              </section>
+            </div>
+          </details>
+      
+          <div class="links">
+            <a class="btn primary" href="https://claude.ai/artifact/8untxZXSKfgkMBjhj1sPi1" target="_blank" rel="noopener">Launch the simulator ↗</a>
+          </div>
         </div>
       </article>
     </div>
@@ -1039,7 +1140,7 @@ footer{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; pa
   <section class="sec page" aria-labelledby="resume-title">
     <div class="sheet">
       <div class="sheet-head">
-        <div><h3>Julian Zeppa</h3><p>Product designer · Co-founder, Armada Strategic · B.A. Political Science, University of Miami (2027)</p></div>
+        <div><h3>Julian Zeppa</h3><p>Product designer · Co-founder &amp; CEO, Armada Strategic · B.A. Political Science, University of Miami (2027)</p></div>
         <span class="mono">San Francisco Bay Area · Miami</span>
       </div>
       <div class="block" id="experience"><h4 class="mono">Experience</h4>
@@ -1047,14 +1148,13 @@ footer{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; pa
       <li class="role">
         <div class="when"><b>Mar 2026 – Present</b><span class="mono">SF Bay Area</span></div>
         <div>
-          <h3>Co-Founder · Strategy, Operations &amp; Product Design</h3>
+          <h3>Co-Founder &amp; CEO</h3>
           <div class="org">Armada Strategic LLC</div>
           <ul>
-            <li>Co-founded a <strong>defense and security company</strong> pursuing government contracting. Led SAM.gov registration, federal contractor onboarding, procurement and NAICS/PSC research, capability statements and market-entry plans.</li>
-            <li>Led <strong>product design for Civic.OS</strong>, from user research inside a district office to shipped software: an operations dashboard, an evidence-linked daily briefing, pattern detection, maps, escalation tracking and an audit log.</li>
-            <li>Designed the information architecture around three questions staff ask every morning: what's happening, what changed, and what needs attention.</li>
-            <li>Pitched Civic.OS to the District 2 supervisor, who asked me to keep developing it for his office.</li>
-            <li>Produced Armada's brand, video ads and the Civic.OS case study.</li>
+            <li>Co-founded and lead a <strong>defense and security company</strong> pursuing government contracting, and set its strategy and its focus on defense technology.</li>
+            <li>Led federal market entry: <strong>SAM.gov registration</strong>, federal contractor onboarding, and procurement and NAICS/PSC research.</li>
+            <li>Wrote Armada's <strong>capability statements and market-entry plans</strong>.</li>
+            <li>Built the company's brand and produced its video ads.</li>
           </ul>
         </div>
       </li>
@@ -1076,7 +1176,10 @@ footer{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; pa
           <div class="org">City and County of San Francisco · Office of Supervisor Stephen Sherrill, District 2</div>
           <ul>
             <li>Handled <strong>constituent services and outreach</strong> for the district office.</li>
-            <li>Mapped how staff tracked constituent issues across calls, 311 and email. That research became the basis for Civic.OS.</li>
+            <li>Mapped how staff tracked constituent issues across calls, 311 and email, and found that most of that hand-entered data was never analyzed.</li>
+            <li>Led <strong>product design for Civic.OS</strong>, from user research inside the office to shipped software: an operations dashboard, an evidence-linked daily briefing, pattern detection, maps, escalation tracking and an audit log.</li>
+            <li>Designed its information architecture around three questions staff ask every morning: what's happening, what changed, and what needs attention.</li>
+            <li>Pitched Civic.OS to Supervisor Sherrill, who asked me to keep developing it for his office.</li>
             <li>Helped create and run District 2 entertainment zones, including the <strong>Union Street Entertainment Zone</strong> and World Cup events.</li>
           </ul>
         </div>
