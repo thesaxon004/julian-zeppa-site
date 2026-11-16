@@ -896,12 +896,12 @@ footer{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; pa
         <div class="info">
           <span class="idx">03 / 03 · Virtual Reality class · Final project</span>
           <h3>RAVEN</h3>
-          <p>A drone operator training simulator that runs in a web browser and in VR on Meta Quest. The pilot flies over a battlefield modeled on the war in Ukraine and trains on finding, identifying and prioritizing targets while flying in a way that keeps the drone alive. Every scored module ends with an after-action report and a qualification rating.</p>
+          <p>A drone operator training simulator that runs in a web browser and in VR on Meta Quest. The pilot flies over a battlefield modeled on the war in Ukraine and trains on finding, identifying and prioritizing targets while flying in a way that keeps the drone alive. Every mission ends with an after-action report, a map of the flight and a qualification rating.</p>
           <dl class="specs">
             <dt>Role</dt><dd>Concept, training design, realism and damage-model design, testing; built with AI-assisted development</dd>
             <dt>Stack</dt><dd>Three.js (r160), WebXR, custom shaders, Web Audio. One self-contained HTML file</dd>
             <dt>Year</dt><dd>2026</dd>
-            <dt>Status</dt><dd>Complete · tested on Meta Quest and with a USB radio controller</dd>
+            <dt>Status</dt><dd>Live · tested on Meta Quest and with a USB radio controller</dd>
           </dl>
       
           <details class="raven-more">
@@ -910,7 +910,9 @@ footer{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; pa
               <section>
                 <h4 class="mono">Training</h4>
                 <ul>
-                  <li><b>Five modules:</b> Free Flight, Target Acquisition, Prioritization, Strike, and a Spectate / photo mode.</li>
+                  <li><b>Qualification modules:</b> Target Acquisition, Prioritization and Strike, each scored and rated.</li>
+                  <li><b>Scenarios:</b> a different tasking each round: defend a friendly line from an assault, interdict a supply convoy, or knock out EW stations, depots or armour.</li>
+                  <li><b>Skill drills:</b> graded hover, gate, low-level and moving-target drills, plus Free Flight and a Spectate / photo mode.</li>
                   <li><b>Two airframes:</b> a hovering grenade bomber (about 60 km/h) and a one-way FPV strike drone (about 110 km/h, 150 in a dive).</li>
                   <li><b>Three flight models:</b> Assist, Angle and Acro, the rate mode real FPV pilots fly.</li>
                   <li><b>Rules of engagement:</b> civilian vehicles are no-strike, and hitting one is logged as a violation.</li>
@@ -921,13 +923,15 @@ footer{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; pa
                 <ul>
                   <li>About 4 km of steppe, tree lines, trench strongpoints, highways with traffic, villages and a ruined district.</li>
                   <li>About 100 soldiers and 30 vehicles spread over 2.5 km of front, so targets have to be searched for.</li>
+                  <li>A new enemy layout every mission; entering a seed repeats one, so a class can fly the same battlefield.</li>
                   <li>Summer and winter, day and night, and a white-hot thermal camera.</li>
                 </ul>
               </section>
               <section>
                 <h4 class="mono">Realism</h4>
                 <ul>
-                  <li>Fire teams use bounding overwatch, cover and dispersion, and react to the drone.</li>
+                  <li>Fire teams use bounding overwatch, cover and dispersion. Most go to ground when they hear a drone, and nearby teams reinforce a position that has been hit.</li>
+                  <li>Enemy interceptor drones patrol their lines and will chase and ram the pilot's drone.</li>
                   <li>Counter-drone fire, electronic-warfare jamming, and a video link that degrades with range and line of sight.</li>
                   <li>Wind, payload weight and battery drain, plus a vehicle damage model from my own design document.</li>
                 </ul>
@@ -935,6 +939,8 @@ footer{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; pa
               <section>
                 <h4 class="mono">Debrief</h4>
                 <ul>
+                  <li><b>Flight debrief map:</b> the full flight path, colored by when the drone was detected or losing signal, against where the enemy actually was.</li>
+                  <li><b>Areas of interest:</b> the pilot flags ground they judge to hold enemy, and the report scores how many were right.</li>
                   <li>Damage-assessment log and a damage report with a hit-location diagram.</li>
                   <li><b>Strike Review:</b> a slow-motion replay of the last 8 seconds with blast-radius rings.</li>
                   <li>A service record with session and career statistics.</li>
@@ -952,7 +958,7 @@ footer{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; pa
                 <h4 class="mono">Runs on</h4>
                 <ul>
                   <li>Chrome, Edge, Firefox and Safari 17+ on desktop.</li>
-                  <li>Meta Quest 2, 3, 3S and Pro in the Quest Browser, when hosted at its own https address.</li>
+                  <li>Meta Quest 2, 3, 3S and Pro in the Quest Browser at raven-drone-sim.netlify.app, with a goggle view that fills the pilot's vision like real FPV goggles.</li>
                   <li>USB radio transmitters, gamepads, keyboard and mouse.</li>
                 </ul>
               </section>
@@ -965,7 +971,8 @@ footer{display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; pa
           </details>
       
           <div class="links">
-            <a class="btn primary" href="https://claude.ai/artifact/8untxZXSKfgkMBjhj1sPi1" target="_blank" rel="noopener">Launch the simulator ↗</a>
+            <a class="btn primary" href="https://raven-drone-sim.netlify.app" target="_blank" rel="noopener">Launch the simulator ↗</a>
+            <a class="btn" href="https://github.com/thesaxon004/raven-drone-sim" target="_blank" rel="noopener">Source code ↗</a>
           </div>
         </div>
       </article>
